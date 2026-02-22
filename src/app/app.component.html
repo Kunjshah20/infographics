@@ -1,0 +1,32 @@
+<div class="landing-container">
+  <header class="hero">
+    <h1>Infographic Hub</h1>
+    <p>Select a topic to view its 1:1 square infographics.</p>
+  </header>
+
+  <nav class="topic-selector">
+    <button 
+      *ngFor="let topic of topics" 
+      [class.active]="topic === selectedTopic"
+      (click)="selectTopic(topic)">
+      {{ topic }}
+    </button>
+  </nav>
+
+  <main class="display-area">
+    <h2>{{ selectedTopic }}</h2>
+    
+    <div class="infographic-grid">
+      <div 
+        class="square-infographic-container" 
+        *ngFor="let imgPath of infographicData[selectedTopic]">
+        
+        <img [src]="imgPath" alt="{{ selectedTopic }} infographic" class="responsive-image">
+      </div>
+    </div>
+
+    <div class="placeholder-text" *ngIf="!infographicData[selectedTopic]?.length">
+      No graphics available for {{ selectedTopic }} yet.
+    </div>
+  </main>
+</div>
