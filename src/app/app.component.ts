@@ -9,7 +9,6 @@ export class AppComponent {
   topics: string[] = ['Business', 'Sport', 'Entertainment', 'Health', 'Productivity'];
   selectedTopic: string = '';
 
-  // Notice the change here: string[] instead of string
   infographicData: { [key: string]: string[] } = {
     'Business': [
       'assets/biz-1.webp', 
